@@ -38,6 +38,42 @@ activities = {
         "schedule": "Mondays, Wednesdays, Fridays, 2:00 PM - 3:00 PM",
         "max_participants": 30,
         "participants": ["john@mergington.edu", "olivia@mergington.edu"]
+    },
+    "Basketball Team": {
+        "description": "Competitive basketball team for interscholastic tournaments",
+        "schedule": "Mondays and Wednesdays, 4:00 PM - 5:30 PM",
+        "max_participants": 15,
+        "participants": ["james@mergington.edu"]
+    },
+    "Tennis Club": {
+        "description": "Learn and practice tennis skills on outdoor courts",
+        "schedule": "Saturdays, 9:00 AM - 11:00 AM",
+        "max_participants": 16,
+        "participants": ["sarah@mergington.edu", "ryan@mergington.edu"]
+    },
+    "Art Studio": {
+        "description": "Explore painting, drawing, and digital art techniques",
+        "schedule": "Wednesdays, 3:30 PM - 5:00 PM",
+        "max_participants": 18,
+        "participants": ["maya@mergington.edu"]
+    },
+    "Drama Club": {
+        "description": "Perform in theatrical productions and develop acting skills",
+        "schedule": "Thursdays, 4:00 PM - 5:30 PM",
+        "max_participants": 25,
+        "participants": ["alex@mergington.edu", "jordan@mergington.edu"]
+    },
+    "Science Club": {
+        "description": "Conduct experiments and explore scientific research projects",
+        "schedule": "Tuesdays, 3:30 PM - 4:45 PM",
+        "max_participants": 20,
+        "participants": ["lucas@mergington.edu"]
+    },
+    "Debate Team": {
+        "description": "Develop argumentation and public speaking skills",
+        "schedule": "Mondays and Thursdays, 4:30 PM - 6:00 PM",
+        "max_participants": 12,
+        "participants": ["grace@mergington.edu", "noah@mergington.edu"]
     }
 }
 
@@ -54,6 +90,7 @@ def get_activities():
 
 @app.post("/activities/{activity_name}/signup")
 def signup_for_activity(activity_name: str, email: str):
+    # Validate student is not already signed up 
     """Sign up a student for an activity"""
     # Validate activity exists
     if activity_name not in activities:
